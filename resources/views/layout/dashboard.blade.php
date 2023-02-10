@@ -32,6 +32,7 @@
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
+  <link rel="stylesheet" href="https:cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ asset('theme/assets/css/material-dashboard.css?v=3.0.4') }}" rel="stylesheet" />
@@ -51,7 +52,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="../pages/dashboard.html">
+          <a class="nav-link text-white active bg-gradient-primary" href="{{ route('admin.dashboard') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="fa fa-address-book-o" aria-hidden="true"></i>
             </div>
@@ -271,7 +272,7 @@
   </main>
 
 
-  <div class="fixed-plugin">
+  {{-- <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
       <i class="material-icons py-2">settings</i>
     </a>
@@ -344,9 +345,12 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
   <!--   Core JS Files   -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
+
   <script src="{{ asset('theme/assets/js/core/popper.min.js') }}"></script>
   <script src="{{ asset('theme/assets/js/core/bootstrap.min.js') }}"></script>
   <script src="{{ asset('theme/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
@@ -361,6 +365,11 @@
       }
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
+
+    $(document).ready( function () {
+    $('#table').DataTable();
+    } );
+
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>

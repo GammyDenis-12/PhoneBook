@@ -22,7 +22,6 @@ class AuthController extends Controller
         return redirect()->route('admin.dashboard');
      } else {
         return redirect()->route('admin.login')->with('error', 'invalid credentials!');;
-
      }
 
      }
