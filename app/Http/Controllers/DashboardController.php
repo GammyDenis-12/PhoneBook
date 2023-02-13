@@ -26,28 +26,49 @@ class DashboardController extends Controller
         
         $phonebook = contact::create($data);
 
-        
-        // return redirect()->route('companies.index')->with('success','Company has been created successfully.');
-
-         
+        return redirect()->route('admin.dashboard')->with('success','Company has been created successfully.');
 
     }
 
-    public function UpdateContact(Request $req){
-        $id=$req->id;
+    public function UpdateContact(Request $req ){
+
+        // $Request->validate([
+        //     'name' => 'required',
+        //     'address' => 'required',
+        //     'email' => 'required',
+        //     'contact' => 'required',
+          
+        // ]);
+
+        // dd($Request);
+        // $contact->update($Request->post())->save();
+        
         $name=$req->name;
         $address=$req->address;
         $email=$req->email;
         $contact=$req->contact;
+           
+        $users = DB::table('contacts')
+                ->where('name', '=', $name)
+                ->where('age', '>', 35)
+                ->where('votes', '=', 100)
+                ->where('age', '>', 35)
+                ->get();
 
-        contact::where('id','=',$id)->update([
-           'name'=>$name,
-           'address'=>$address,
-           'email'=>$email,
-           'contact'=>$contact
-
-        ]);
-        // return redirect()->action([manageissuesController::class, 'show']);
+        // dd($id);
+    //    $data =  contact::
+       
+    //           where('id','=',$id)
+    //           ->update([
+    //        'name'=>$name,
+    //        'address'=>$address,
+    //        'email'=>$email,
+    //        'contact'=>$contact
+                
+    //     ]);
+         
+    
+        // // return redirect()->action([manageissuesController::class, 'show']);
         // ->with('success','Issue has been updated successfully.');
     }
 
@@ -61,8 +82,14 @@ class DashboardController extends Controller
     Public function DeleteContact($id){
 
         contact::where('id','=',$id)->delete();
-        //   return redirect()->action([manageissuesController::class, 'show'])
+          return redirect()->route('admin.dashboard')->with('success','Company has been created successfully.');
         //     ->with('success','Issue has been deleted successfully.');
+
+    }
+
+    public function Delete($id){
+   
+        return $id;
 
     }
 

@@ -18,7 +18,6 @@
        
           <div class="row ">
             <div class="mb-3 input-group input-group-outline">
-               
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="name" value="{{ $data->name }}">
               </div>
               <div class="mb-3 input-group input-group-outline">
