@@ -25,11 +25,11 @@ Route::get('/sample', function () {
 
 //dashboardController
 Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('admin.dashboard');
-Route::post('add/contact',[DashboardController::class,'storecontact'])->name('contact.store');
-Route::get('contact/{id}',[DashboardController::class,'GetContactId'])->name('contact.id');
-Route::post('update/contact',[DashboardController::class,'UpdateContact'])->name('update.contact');
-Route::get('delete/contact/{id}',[DashboardController::class,'DeleteContact'])->name('delete.contact');
-Route::get('/delete/data/{id}',[DashboardController::class,'Delete'])->name('delete.contact');
+Route::post('/add/contact',[DashboardController::class,'storecontact'])->name('contact.store');
+Route::get('/contact/{id}',[DashboardController::class,'GetContactId'])->name('contact.id');
+Route::post('/update/contact',[DashboardController::class,'UpdateContact'])->name('update.contact');
+Route::get('/delete/contact/{id}',[DashboardController::class,'DeleteContact'])->name('delete.contact');
+Route::get('/delete/data/{id}',[DashboardController::class,'Delete'])->name('delete.contac');
 
 //practice
 

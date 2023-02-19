@@ -13,24 +13,27 @@
           </div>
        </div>
        <div class="card-body p-3">
-        <form action="{{ route('update.contact') }}" method="post">
+        <form action="{{ route('update.contact' )}}" method="post">
             @csrf
-       
+            <input type="hidden" name="id" value="{{ $data->id }}">
           <div class="row ">
+          <!-- <div class="mb-3 input-group input-group-outline">
+                <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="FullName" name="name" value="{{ $data->id }}">
+              </div> -->
             <div class="mb-3 input-group input-group-outline">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="name" value="{{ $data->name }}">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="FullName" name="name" value="{{ $data->name }}">
               </div>
               <div class="mb-3 input-group input-group-outline">
               
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="address" value="{{ $data->address }}">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Home Address" name="address" value="{{ $data->address }}">
               </div>
               <div class="mb-3 input-group input-group-outline">
              
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email" value="{{ $data->email }}">
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email" name="email" value="{{ $data->email }}">
               </div>
               <div class="mb-3 input-group input-group-outline">
               
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="contact" value="{{ $data->contact }}">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Contact Number" name="contact" value="{{ $data->contact }}">
               </div>
               
           </div>
