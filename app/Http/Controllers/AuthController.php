@@ -11,6 +11,18 @@ class AuthController extends Controller
          return view('auth.adminlogin');
 
      }
+
+     public function signUp(){
+
+        return view('auth.signup');
+
+     }
+
+     public function CreateAdmin(Request $Request){
+      
+        dd($Request);      
+
+     }
  
      public function store(Request $Request){
         
@@ -21,7 +33,7 @@ class AuthController extends Controller
      if ($email=='lino@gmail.com' && $password=='lino'){
         return redirect()->route('admin.dashboard');
      } else {
-        return redirect()->route('admin.login')->with('error', 'invalid credentials!');;
+        return redirect()->route('admin.login')->with('error', 'invalid credentials!');
      }
 
      }

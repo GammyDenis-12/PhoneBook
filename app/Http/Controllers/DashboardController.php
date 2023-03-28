@@ -11,9 +11,9 @@ class DashboardController extends Controller
  
     public function dashboard(){
 
-        $contact = contact::orderBy('id','desc')->paginate(5);
-        
-        return view('content.booktable', compact('contact'));
+        // $contact = contact::orderBy('id','desc')->paginate(5);
+        $contact = contact::all(); 
+               return view('content.booktable', compact('contact'));
 
     }
 
@@ -40,16 +40,17 @@ class DashboardController extends Controller
            $user -> email = $req -> email;
            $user -> contact = $req -> contact;
            $user -> save();
+
+           return redirect()->route('admin.dashboard');
+
                 // // return redirect()->action([manageissuesController::class, 'show']);
         // ->with('success','Issue has been updated successfully.');
     }  
     
-   
-   
-
      public function GetContactId($id){
 
         $data=contact::where('id','=',$id)->first();
+
         return view('content.editbook',compact('data'));
 
      }
@@ -59,6 +60,7 @@ class DashboardController extends Controller
         contact::where('id','=',$id)->delete();
 
           return redirect()->route('admin.dashboard')->with('success','Company has been created successfully.');
+          
         //     ->with('success','Issue has been deleted successfully.');
 
     }

@@ -37,6 +37,7 @@ Route::get('/delete/data/{id}',[DashboardController::class,'Delete'])->name('del
 //AuthController
 Route::get('/admin/login', [AuthController::class,'adminlogin'])->name('admin.login');
 Route::post('/admin/post',[AuthController::class,'store'])->name('admin.post');
-
+Route::get('/signup',[AuthController::class,'signup'])->name('signup');
+Route::post('/signup/store',[AuthController::class,'CreateAdmin'])->name('signup.store');
 
 

@@ -15,7 +15,9 @@
        <div class="card-body p-3">
         <form action="{{ route('update.contact' )}}" method="post">
             @csrf
+
             <input type="hidden" name="id" value="{{ $data->id }}">
+            
           <div class="row ">
           <!-- <div class="mb-3 input-group input-group-outline">
                 <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="FullName" name="name" value="{{ $data->id }}">
